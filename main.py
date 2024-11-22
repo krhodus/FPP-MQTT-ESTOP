@@ -1,12 +1,11 @@
 """
 LDPLX - FPP ESTOP
-v0.1
+v0.2
 KEVIN@LDPLIGHTS.COM
 
 Based on MQTT Example from
 forum.micropython.org
 """
-
 import network
 import time
 
@@ -44,6 +43,7 @@ HB_topic = secrets['HB_topic']
 ESTOP_topic = secrets['ESTOP_topic']
 Door_topic = secrets['Door_topic']
 Master_Seq_topic = secrets['Master_Seq_topic']
+Secondary_Seq_topic = secrets['Secondary_Seq_topics']
 
 def sub_cb(topic, msg):
     #For Future Use to parse topics from server
@@ -111,6 +111,7 @@ def StartUpESTOP():
         print(ESTOP_topic,"  ",pub_msg)
         client.publish(ESTOP_topic, pub_msg,True,1)
         client.publish(Master_Seq_topic, "")
+        client.publish(Secondary_Seq_topic, "")
     else:
         print("ESTOP DEACTIVATED")
         ESTOP_State = False
@@ -128,6 +129,7 @@ def CheckESTOP():
             print(ESTOP_topic,"  ",pub_msg)
             client.publish(ESTOP_topic, pub_msg,True,1)
             client.publish(Master_Seq_topic, "")
+            client.publish(Secondary_Seq_topic, "")
     else:
         if ESTOP_State != False:
             print("ESTOP DEACTIVATED")
