@@ -10,5 +10,6 @@ secrets = {
     'HB_topic' : 'MQTT Topic for Heartbeat Notifications',
     'ESTOP_topic' : 'MQTT Topic for ESTOP Notifications',
     'Door_topic' : "MQTT Topic for Door Sensor Notifications",
-    'Master_Seq_topic' : 'MQTT Topic for Master FPP Player'
+    'Master_Seq_topic' : 'MQTT Topic for Master FPP Player',
+    'Secondary_Seq_topic' : 'MQTT Topic for Secondary FPP Player'
     }
